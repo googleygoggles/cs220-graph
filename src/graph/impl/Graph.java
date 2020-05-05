@@ -1,7 +1,6 @@
 package graph.impl;
 
-import java.util.Collection;
-import java.util.Map;
+import java.util.*;
 
 import graph.IGraph;
 import graph.INode;
@@ -16,7 +15,7 @@ import graph.NodeVisitor;
  */
 public class Graph implements IGraph
 {
-    
+    private Map<String, INode> graphN = new HashMap<>();
     /**
      * Return the {@link Node} with the given name.
      * 
@@ -29,7 +28,11 @@ public class Graph implements IGraph
      * @return
      */
     public INode getOrCreateNode(String name) {
-        throw new UnsupportedOperationException("Implement this method");
+        if (graphN.containsKey(name)){
+            return graphN.get(name);
+        }
+        graphN.put(name, new Node(name));
+        return graphN.get(name);
     }
 
     /**
@@ -40,7 +43,7 @@ public class Graph implements IGraph
      * @return
      */
     public boolean containsNode(String name) {
-        throw new UnsupportedOperationException("Implement this method");
+        return graphN.containsKey(name);
     }
 
     /**
@@ -49,7 +52,7 @@ public class Graph implements IGraph
      * @return
      */
     public Collection<INode> getAllNodes() {
-        throw new UnsupportedOperationException("Implement this method");
+        return graphN.values();
     }
     
     /**
@@ -63,8 +66,21 @@ public class Graph implements IGraph
      */
     public void breadthFirstSearch(String startNodeName, NodeVisitor v)
     {
-        // TODO: Implement this method
-        throw new UnsupportedOperationException("Implement this method");
+        Set<INode> visited = new TreeSet<>();
+        Queue<INode> toBeVisited = new LinkedList();
+        toBeVisited.add(graphN.get(startNodeName));
+        while (!toBeVisited.isEmpty()){
+            INode x = toBeVisited.remove();
+            if (!visited.contains(x)) {
+                v.visit(x);
+                visited.add(x);
+                for (INode n : x.getNeighbors()){
+                    if (!visited.contains(n)){
+                        toBeVisited.add(graphN.get(n));
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -78,8 +94,21 @@ public class Graph implements IGraph
      */
     public void depthFirstSearch(String startNodeName, NodeVisitor v)
     {
-        // TODO: implement this method
-        throw new UnsupportedOperationException("Implement this method");
+        Set<INode> visited = new TreeSet<>();
+        Stack<INode> toBeVisited = new Stack<>();
+        toBeVisited.push(graphN.get(startNodeName));
+        while (!toBeVisited.isEmpty()){
+            INode x = toBeVisited.pop();
+            if (!visited.contains(x)) {
+                v.visit(x);
+                visited.add(x);
+                for (INode n : x.getNeighbors()){
+                    if (!visited.contains(n)){
+                        toBeVisited.push(n);
+                    }
+                }
+            }
+        }
     }
 
     /**

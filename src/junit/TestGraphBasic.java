@@ -18,7 +18,7 @@ import graph.impl.Node;
 
 public class TestGraphBasic
 {
-    
+
     @Test
     public void testNodeConstructor()
     {
@@ -26,7 +26,7 @@ public class TestGraphBasic
         assertEquals("A", n.getName());
         assertEquals(0, n.getNeighbors().size());
     }
-    
+
     @Test
     public void testAddUndirectedEdges()
     {
@@ -36,8 +36,8 @@ public class TestGraphBasic
         assertEquals(5, n1.getWeight(n2));
         assertEquals(5, n2.getWeight(n1));
     }
-    
-    
+
+
     @Test
     public void testAddDirectedEdge()
     {
@@ -52,7 +52,7 @@ public class TestGraphBasic
             // do nothing; we are supposed to get an exception
         }
     }
-    
+
     @Test
     public void testNeighbors()
     {
@@ -61,13 +61,13 @@ public class TestGraphBasic
         INode n3=new Node("C");
         INode n4=new Node("D");
         INode n5=new Node("E");
-        
+
         n1.addUndirectedEdgeToNode(n2, 1);
         n1.addUndirectedEdgeToNode(n3, 1);
         n2.addUndirectedEdgeToNode(n4, 1);
         n5.addUndirectedEdgeToNode(n1, 2);
-        
-        
+
+
         String[] neighbors=new String[n1.getNeighbors().size()];
         int i=0;
         for (INode n : n1.getNeighbors()) {
@@ -83,8 +83,8 @@ public class TestGraphBasic
             assertEquals(correct[j], neighbors[j]);
         }
     }
-    
-    
+
+
     @Test
     public void testAddNode() throws Exception
     {
@@ -95,9 +95,9 @@ public class TestGraphBasic
         // should get back the same instance
         assertTrue(n1==n2);
         assertEquals("A", n2.getName());
-        assertEquals(0,n2.getNeighbors().size()); 
+        assertEquals(0,n2.getNeighbors().size());
     }
-    
+
     @Test
     public void testAddTwoConnectedNode() throws Exception
     {
@@ -106,10 +106,10 @@ public class TestGraphBasic
         INode n2=g.getOrCreateNode("B");
         n1.addUndirectedEdgeToNode(n2, 5);
         assertEquals(2, g.getAllNodes().size());
-        assertEquals(1, n1.getNeighbors().size()); 
-        assertEquals(1, n2.getNeighbors().size()); 
+        assertEquals(1, n1.getNeighbors().size());
+        assertEquals(1, n2.getNeighbors().size());
     }
-    
+
     @Test
     public void testEdgesAreUpdated()
     {
@@ -123,7 +123,7 @@ public class TestGraphBasic
         assertEquals(8, n1.getWeight(n2));
         assertEquals(8, n2.getWeight(n1));
     }
-    
+
     @Test
     public void testRemoveUndirectedEdges()
     {
@@ -137,7 +137,7 @@ public class TestGraphBasic
         assertFalse(n1.hasEdge(n2));
         assertFalse(n2.hasEdge(n1));
     }
-    
+
     @Test
     public void testRemoveDirectedEdges()
     {

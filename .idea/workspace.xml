@@ -17,6 +17,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -125,22 +129,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588623826170" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1588652063068">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1589084470551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588652063068" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1588652063067">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589084470551" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1589084470551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588652063067" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1588652063067">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589084470551" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1589084470551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588652063067" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1588652063067">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589084470551" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1589084470551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588652063067" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589084470551" />
     <state x="277" y="0" key="SettingsEditor" timestamp="1588652060509">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -149,10 +153,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1588653176228" />
-    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1588641433413">
+    <state x="498" y="290" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589084374201">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824@0.0.1536.824" timestamp="1588641433413" />
+    <state x="498" y="290" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1589084374201" />
+    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1589084450395">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="540" y="115" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824@0.0.1536.824" timestamp="1589084450395" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1588625365246">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

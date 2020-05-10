@@ -91,7 +91,6 @@ public class Node implements INode
         if (neighbors.containsKey(n)) {
             neighbors.remove(n);
         }
-        throw new IllegalStateException();
     }
     
     /**
@@ -109,7 +108,6 @@ public class Node implements INode
             removeDirectedEdgeToNode(n);
             n.removeDirectedEdgeToNode(this);
         }
-        throw new IllegalStateException();
     }
     
     /**

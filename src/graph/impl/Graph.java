@@ -66,9 +66,9 @@ public class Graph implements IGraph
      */
     public void breadthFirstSearch(String startNodeName, NodeVisitor v)
     {
-        Set<INode> visited = new TreeSet<>();
-        Queue<INode> toBeVisited = new LinkedList();
-        toBeVisited.add(graphN.get(startNodeName));
+        Set<INode> visited = new HashSet<>();
+        Queue<INode> toBeVisited = new LinkedList<>();
+        toBeVisited.add(getOrCreateNode(startNodeName));
         while (!toBeVisited.isEmpty()){
             INode x = toBeVisited.remove();
             if (!visited.contains(x)) {
@@ -76,7 +76,7 @@ public class Graph implements IGraph
                 visited.add(x);
                 for (INode n : x.getNeighbors()){
                     if (!visited.contains(n)){
-                        toBeVisited.add(graphN.get(n));
+                        toBeVisited.add(n);
                     }
                 }
             }
@@ -94,9 +94,9 @@ public class Graph implements IGraph
      */
     public void depthFirstSearch(String startNodeName, NodeVisitor v)
     {
-        Set<INode> visited = new TreeSet<>();
+        Set<INode> visited = new HashSet<>();
         Stack<INode> toBeVisited = new Stack<>();
-        toBeVisited.push(graphN.get(startNodeName));
+        toBeVisited.push(getOrCreateNode(startNodeName));
         while (!toBeVisited.isEmpty()){
             INode x = toBeVisited.pop();
             if (!visited.contains(x)) {
@@ -126,7 +126,23 @@ public class Graph implements IGraph
      */
     public Map<INode,Integer> dijkstra(String startName) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("Implement this method");
+    	
+    	Map<INode, Integer> result = new HashMap<>();
+    	PriorityQueue<Path> toDo = new PriorityQueue<>();
+    	toDo.add(new Path(startName, 0));
+    	while (result.size() < graphN.size()) {
+    		Path nextPath = toDo.poll();
+    		INode tempN = graphN.get(nextPath.dest);
+    			if(!result.containsKey(tempN)) {
+    				int c = nextPath.cost;
+    				result.put(tempN, c);
+    				for (INode n : tempN.getNeighbors()) {
+    					toDo.add(new Path(n.getName(), c + tempN.getWeight(n)));
+    				}
+    			}
+    	}
+    	return result;
+    	
     }
     
     /**
@@ -138,7 +154,29 @@ public class Graph implements IGraph
      * @return
      */
     public IGraph primJarnik() {
-        //TODO Implement this method
-        throw new UnsupportedOperationException();
-    }
+		IGraph tempGraph=new Graph();
+		INode start=this.getAllNodes().iterator().next();
+		PriorityQueue<Edge> toDo= new PriorityQueue<>();
+		
+		for (INode n : start.getNeighbors()) {
+			toDo.add(new Edge(start.getName(),n.getName(),n.getWeight(start)));
+		}
+			
+			while (tempGraph.getAllNodes().size()!=this.getAllNodes().size()) {
+				Edge e= toDo.poll();
+				
+				if (tempGraph.containsNode(e.dest))
+					continue;
+				INode destination=tempGraph.getOrCreateNode(e.dest);
+				INode source =tempGraph.getOrCreateNode(e.source);
+				source.addUndirectedEdgeToNode(destination, e.weight);
+
+				INode edgesLeft= graphN.get(e.dest);
+				
+				for (INode node: edgesLeft.getNeighbors()) {
+					toDo.add(new Edge(edgesLeft.getName(),node.getName(),node.getWeight(edgesLeft)));
+				}
+			}
+		return tempGraph;
+	}
 }
